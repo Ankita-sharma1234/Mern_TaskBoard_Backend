@@ -99,6 +99,8 @@ app.use((req, res, next) => {
   console.log(`${req.method} ${req.path}`, req.body);
   next();
 });
+// Handle preflight requests
+app.options('*', cors());
 
 // Test route
 app.get('/api/test', (req, res) => {
